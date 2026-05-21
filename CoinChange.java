@@ -4,12 +4,13 @@
 
 public class CoinChange {
     int dp[];
-    public int CoinChange(int[] coins, int amount) {
-        dp = new int[amount+1];
+    public int coinChange(int[] coins, int amount) {
+        int max = amount + 1;
+        dp = new int[max];
 
         dp[0] = 0;
         for(int i = 1; i <= amount; i++) {
-            dp[i] = 99999;
+            dp[i] = max;
         }
 
         for(int i = 1; i <= coins.length; i++) {
@@ -19,6 +20,6 @@ public class CoinChange {
                 }
             }
         }
-        return dp[amount] == 99999 ? -1 : dp[amount];
+        return dp[amount] == max ? -1 : dp[amount];
     }
 }
